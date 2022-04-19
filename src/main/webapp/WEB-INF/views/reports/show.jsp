@@ -37,6 +37,10 @@
                     <fmt:parseDate value="${report.updatedAt}" pattern="yyyy-MM-dd'T'HH:mm:ss" var="updateDay" type="date" />
                     <td><fmt:formatDate value="${updateDay}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                 </tr>
+                <tr>
+                    <th>いいね数</th>
+                    <td class="like_count"><c:out value="1"/></td>
+                </tr>
             </tbody>
         </table>
 
@@ -44,10 +48,20 @@
             <p>
                 <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報を編集する</a>
             </p>
+
         </c:if>
+
+        <c:if test="${sessionScope.login_employee.id != report.employee.id}">
+         <p>
+             <a href="<c:url value='?action=${actRep}&command=${commEdt}&id=${report.id}' />">この日報にいいねする</a>
+         </p>
+
+
+         </c:if>
 
         <p>
             <a href="<c:url value='?action=${actRep}&command=${commIdx}' />">一覧に戻る</a>
         </p>
+
     </c:param>
 </c:import>
