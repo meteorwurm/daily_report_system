@@ -32,10 +32,10 @@
                 <c:forEach var="report" items="${reports}" varStatus="status">
                     <fmt:parseDate value="${report.reportDate}" pattern="yyyy-MM-dd" var="reportDay" type="date" />
                     <tr class="row${status.count % 2}">
-                        <td class="report_name"><c:out value="${report.employee.name}"/></td>
+                        <td class="report_name"><c:out value="${report.employee.name}" /></td>
                         <td class="report_date"><fmt:formatDate value='${reportDay}' pattern='yyyy-MM-dd' /></td>
                         <td class="report_title">${report.title}</td>
-                        <td class="like_count"><c:out value="1"/></td>
+                        <td class="like_count"><c:out value="${report.likeCount}"/></td>
                         <td class="report_action"><a href="<c:url value='?action=${actRep}&command=${commShow}&id=${report.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>

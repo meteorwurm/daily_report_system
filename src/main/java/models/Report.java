@@ -100,5 +100,4 @@ public class Report {
     @Column(name = JpaConst.REP_COL_LIKE_COUNT, nullable = false)
     private Integer likeCount;
 
-
 }
